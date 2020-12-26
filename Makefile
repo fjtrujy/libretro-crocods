@@ -165,6 +165,24 @@ else ifeq ($(platform), psl1ght)
 	PLATFORM_DEFINES := -D__PSL1GHT__
 	STATIC_LINKING = 1
 
+# PS2
+else ifeq ($(platform), ps2)
+	EXT=a
+   TARGET := $(TARGET_NAME)_libretro_$(platform).$(EXT)
+   CC = ee-gcc$(EXE_EXT)
+   AR = ee-ar$(EXE_EXT)
+   PLATFORM_DEFINES := -DPS2 -G0
+   STATIC_LINKING = 1
+
+# PS2
+else ifeq ($(platform), ps2_1)
+	EXT=a
+   TARGET := $(TARGET_NAME)_libretro_$(platform).$(EXT)
+   CC = mips64r5900el-ps2-elf-gcc$(EXE_EXT)
+   AR = mips64r5900el-ps2-elf-ar$(EXE_EXT)
+   PLATFORM_DEFINES := -DPS2 -G0
+   STATIC_LINKING = 1
+
 # PSP
 else ifeq ($(platform), psp1)
 	EXT=a
